@@ -14,12 +14,12 @@
     {
       "name": "primary",
       "host": "us.vipor.net",
-      "port": "5040",
+      "port": "16661",
       "ssl": false
     },
     {
       "name": "backup1",
-      "host": "eu.vipor.net",
+      "host": "us.vipor.net",
       "port": "5040",
       "ssl": false
     }
@@ -39,7 +39,7 @@
   "statusUpdateIntervalMs": 2000,
   "alerts": {
     "enabled": true,
-    "minerOfflineSeconds": 120,
+    "minerOfflineSeconds": 680,
     "highRejectRate": {
       "threshold": 0.25,
       "minShares": 20
