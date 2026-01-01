@@ -1,0 +1,49 @@
+{
+  "stratumPort": 8001,
+  "stratumSSL": {
+    "enabled": false,
+    "key": "key.pem",
+    "cert": "cert.pem"
+  },
+  "pool": {
+    "host": "us.vipor.net",
+    "port": "5040",
+    "ssl": false
+  },
+  "pools": [
+    {
+      "name": "primary",
+      "host": "us.vipor.net",
+      "port": "5040",
+      "ssl": false
+    },
+    {
+      "name": "backup1",
+      "host": "eu.vipor.net",
+      "port": "5040",
+      "ssl": false
+    }
+  ],
+  "poolFailover": {
+    "strategy": "priority",
+    "maxFailures": 3,
+    "retryMs": 5000,
+    "autoReturn": true,
+    "primaryCheckMs": 30000
+  },
+  "wallet": "",
+  "password": "",
+  "threads": "auto",
+  "statusPort": 8080,
+  "statusBind": "0.0.0.0",
+  "statusUpdateIntervalMs": 2000,
+  "alerts": {
+    "enabled": true,
+    "minerOfflineSeconds": 120,
+    "highRejectRate": {
+      "threshold": 0.25,
+      "minShares": 20
+    },
+    "retainResolvedSeconds": 300
+  }
+}

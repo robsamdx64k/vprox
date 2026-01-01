@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>vprox Dashboard</title>
+  <link rel="stylesheet" href="/ui/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">vprox</div>
+      <div class="subtitle">Web Dashboard</div>
+    </div>
+    <div class="right">
+      <span id="connBadge" class="badge">connecting…</span>
+      <button id="themeToggle" class="iconbtn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      <span id="now" class="muted"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar">
+      <button class="navbtn active" data-view="status">Status</button>
+      <button class="navbtn" data-view="miners">Miners</button>
+      <button class="navbtn" data-view="alerts">Alerts <span id="alertsNavBadge" class="navbadge hidden">0</span></button>
+      <button class="navbtn" data-view="metrics">Metrics</button>
+      <div class="spacer"></div>
+      <div class="footnote">
+        <div class="muted">Endpoints:</div>
+        <code>/status</code>
+        <code>/miners</code>
+        <code>/alerts</code>
+        <code>/metrics</code>
+      </div>
+    </nav>
+
+    <main class="content">
+      <section id="view-status" class="view"></section>
+      <section id="view-miners" class="view hidden"></section>
+      <section id="view-alerts" class="view hidden"></section>
+      <section id="view-metrics" class="view hidden"></section>
+    </main>
+  </div>
+
+  <dialog id="minerDialog" class="dialog">
+    <form method="dialog" class="dialog-inner">
+      <div class="dialog-head">
+        <div>
+          <div class="dialog-title">Miner</div>
+          <div id="minerDialogSub" class="muted small"></div>
+        </div>
+        <button class="iconbtn" value="cancel" aria-label="Close">✕</button>
+      </div>
+      <pre id="minerDialogBody" class="prebox"></pre>
+      <div class="dialog-actions">
+        <button class="btn" value="cancel">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+
+  <dialog id="workerChartDialog" class="dialog">
+    <form method="dialog" class="dialog-form">
+      <div class="dialog-header">
+        <div>
+          <div id="workerChartTitle" class="dialog-title">Worker</div>
+          <div id="workerChartSub" class="muted small">Last 60 minutes</div>
+        </div>
+        <button class="iconbtn" value="cancel" aria-label="Close">✕</button>
+      </div>
+
+      <div class="chart-controls">
+        <label class="muted small">Window</label>
+        <select id="workerChartWindow" class="select">
+          <option value="30">30 minutes</option>
+          <option value="60" selected>60 minutes</option>
+        </select>
+      </div>
+
+      <canvas id="workerChartCanvas" width="920" height="280" class="bigchart"></canvas>
+      <div id="workerChartStats" class="dialog-stats"></div>
+
+      <div class="dialog-actions">
+        <button class="btn" value="cancel">Close</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/ui/app.js"></script>
+</body>
+</html>
