@@ -36,7 +36,7 @@ function snapshotToMinersList(snapshot, pid) {
 }
 
 if (cluster.isMaster) {
-  console.log(`VerusProxy v${config.version} by Darktron a fork of https://github.com/hellcatz/verusProxy`);
+  console.log(`VerusProxy v${config.version} by Caint a fork of https://github.com/hellcatz/verusProxy`);
 
   // HTTP status endpoints (master only)
   const startedAt = Date.now();
