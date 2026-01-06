@@ -13,7 +13,7 @@
   "pools": [
     {
       "name": "primary",
-      "host": "us.vipor.net",
+      "host": "bobfarms.ddns.net",
       "port": "16661",
       "ssl": false
     },
