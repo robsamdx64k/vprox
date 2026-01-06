@@ -371,8 +371,22 @@ const evaluateAlerts = (agg) => {
   };
 
   const server = http.createServer((req, res) => {
-    try {
-      const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+
+  // CORS for Miningcore UI
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+
+  try {
+    const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+
+    // ... your existing routes ...
 
 // Web UI
 if (url.pathname === "/" || url.pathname === "/ui") {
